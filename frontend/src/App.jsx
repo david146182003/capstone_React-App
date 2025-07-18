@@ -1,29 +1,22 @@
 
-import { useEffect } from 'react'
 import './App.css'
-import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import SignUp from './components/SignUp'
+
+
 
 function App() {
 
-  const [data, setData]= useState()
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch('http://localhost:8080')
-        const data = response.json()
-        setData(data)
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getData()
-
-  }, [])
-
+  
   return (
     <>
-      {data}
+      <HomePage />
+      <Routes>
+        <Route path='/' element={HomePage} />
+        <Route path='/signup' element={SignUp} />
+      </Routes>
     </>
   )
 }
