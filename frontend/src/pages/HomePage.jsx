@@ -1,4 +1,4 @@
-import SignUp from './components/SignUp'
+import SignUp from '../components/SignUp'
 import { useState, useEffect } from 'react'
 
 function HomePage(){
@@ -34,7 +34,11 @@ const BASE_URL = 'http://localhost:8080'
       />
       <ul>
         {customers.map((customer)=>
-        <li key={customer._id}>{customer.name}</li>)}
+        <li key={customer._id}>
+            Name: {customer.name} | 
+            email: {customer.email} | 
+            phone:{customer.phone} |
+            address: {customer.address} </li>)}
       </ul>
      
     </>
