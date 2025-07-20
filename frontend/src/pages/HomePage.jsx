@@ -1,47 +1,36 @@
-import SignUp from '../components/SignUp'
+import { Link } from 'react-router-dom'
+import SignUp from './SignUp'
 import { useState, useEffect } from 'react'
 
 function HomePage(){
 
-const BASE_URL = 'http://localhost:8080'
-  const [customers, setCustomers]= useState([])
-  
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await fetch(BASE_URL + '/customers')
-        const data = await response.json()
-        setCustomers(data)
-        console.log('data:', data)
+    const [products, setProducts] = useState([])
+    console.log(products)
     
-        
-      } catch (e) {
-        console.log(e)
-      }
-    }
-    getData()
+    useEffect(()=>{
+        async function getData(){
+            const response = await fetch('https://fakestoreapi.com/products');
+            const data = await response.json();
+            console.log(data);
+            setProducts(data)
+        }
+        getData()
+    }, [])
+    
 
-  }, [])
 
- 
-
-  return (
-    <>
-    <h1>Customers</h1>
-      <SignUp 
-        customers={customers} setCustomers={setCustomers} BASE_URL={BASE_URL}
-      />
-      <ul>
-        {customers.map((customer)=>
-        <li key={customer._id}>
-            Name: {customer.name} | 
-            email: {customer.email} | 
-            phone:{customer.phone} |
-            address: {customer.address} </li>)}
-      </ul>
-     
-    </>
-  )
+    return (
+        <div className='homeContainer'>
+            <h1>Fashion store</h1>
+            <ul>
+                {products.map((product)=>
+                <li className='product'>
+                   <Link to={`/product/${product.id}`}><img src={product.image}/></Link>
+                    <h3>{product.title}</h3>
+                    <h3>${product.price}</h3>
+                </li>)}
+            </ul>
+        </div>
+    )
 }
 export default HomePage

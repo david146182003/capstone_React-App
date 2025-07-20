@@ -39,5 +39,46 @@ body {
 }
 
 .nav li:active {
-  background-color: darkgray;
+  background-color: rgb(197, 174, 174);
 }
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  border: 1px solid black;
+  height: 90vh;
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  border: 1px solid black;
+  height: 90vh;
+}
+
+
+.homeContainer ul {
+  display: flex;
+  justify-content: space-evenly;
+  height: 90vh;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  column-gap: 1em;
+  row-gap: 1em;
+  
+}
+.product {
+  text-align: center;
+  list-style: none;
+  
+}
+.product img {
+  width: 50%;
+}
+.product:

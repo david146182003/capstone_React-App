@@ -55,6 +55,14 @@ app.delete('/customers/:id', async (req, res)=>{
     }
 })
 
+app.get('/customers/:id', async(req, res)=>{
+    try{
+        const customer = Customer.findOne()
+    }catch(e){
+        console.log(e)
+    }
+})
+
 app.listen(port, ()=>{
     console.log(`Server is running port: ${port}`)
     connectDb()
