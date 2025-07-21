@@ -5,6 +5,10 @@ import SignUp from './pages/SignUp'
 import NavBar from './components/NavBar'
 import SignInPage from './pages/SignInPage'
 import ProductInfo from './pages/ProductInfo'
+import MensPage from './pages/MensPage'
+import WomenPage from './pages/WomenPage'
+import JeweleryPage from './pages/JeweleryPage'
+import ElectronicsPage from './pages/ElectronicsPage'
 
 
 
@@ -20,6 +24,10 @@ function App() {
         <Route path='/signin' element={<SignInPage />} />
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/product/:id' element={<ProductInfo/>}></Route>
+        <Route path='/mens' element={<MensPage/>}></Route>
+        <Route path='/women' element={<WomenPage/>}></Route>
+        <Route path='/jewelery' element={<JeweleryPage/>}></Route>
+        <Route path='/electronics' element={<ElectronicsPage/>}></Route>
       </Routes>
     </>
   )
