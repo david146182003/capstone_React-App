@@ -103,6 +103,14 @@ app.delete('/products/:id', async(req, res)=>{
         res.status(400).json(e)
     }
 })
+app.get('/products/:id', async (req, res)=>{
+    try{
+        const product = await Product.findOne({_id: req.params.id});
+        res.status(200).json(product)
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
 
 app.listen(port, ()=>{
     console.log(`Server is running port: ${port}`)
