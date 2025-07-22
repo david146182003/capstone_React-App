@@ -91,6 +91,18 @@ app.patch('/products/:id', async(req, res)=>{
         res.status(400).json(e)
     }
 })
+app.delete('/products/:id', async(req, res)=>{
+    try{
+        const result = await Product.deleteOne({_id: req.params.id});
+        if(result.deletedCount ==0){
+            res.status(404).json({error: 'No product found'})
+        }
+        res.json(result)
+
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
 
 app.listen(port, ()=>{
     console.log(`Server is running port: ${port}`)
