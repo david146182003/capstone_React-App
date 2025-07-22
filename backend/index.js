@@ -3,6 +3,7 @@ import cors from 'cors'
 import connectDb from './db.js';
 import 'dotenv/config'
 import Customer from './models/customers.js'
+import Product from './models/products.js';
 
 const app = express();
 const port = process.env.PORT;
@@ -57,9 +58,37 @@ app.delete('/customers/:id', async (req, res)=>{
 
 app.get('/customers/:id', async(req, res)=>{
     try{
-        const customer = Customer.findOne()
+        const customer = await Customer.findOne({_id: req.params.id})
+        res.json(customer)
     }catch(e){
         console.log(e)
+    }
+})
+
+app.get('/products', async(req, res)=>{
+    try{
+        const products = await Product.find({});
+        res.status(200).json(products)
+    }catch(e){
+        console.log(e)
+    }
+})
+app.post('/products', async(req, res)=>{
+    try{
+        const product = await Product.create(req.body)
+        res.status(200).json(product)
+    }catch(e){
+        res.status(400).json(e)
+        console.log(e)
+    }
+})
+app.patch('/products/:id', async(req, res)=>{
+    try{
+        const updates = req.body;
+        const updateProduct = await Product.updateOne({_id: req.params.id}, {$set: updates})
+        res.status(200).json(updateProduct)
+    }catch(e){
+        res.status(400).json(e)
     }
 })
 
