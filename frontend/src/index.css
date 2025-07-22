@@ -14,7 +14,7 @@ body {
   align-items: stretch;
   padding: 0 1rem;
   gap: 2rem;
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .nav ul {
@@ -66,7 +66,7 @@ body {
 .homeContainer ul {
   display: flex;
   justify-content: space-evenly;
-  height: 60vh;
+  height: 90vh;
   flex-wrap: wrap;
   align-content: flex-start;
   column-gap: 1em;
@@ -76,6 +76,7 @@ body {
 .product {
   text-align: center;
   list-style: none;
+
   
 }
 .product img {
@@ -101,4 +102,12 @@ body {
   display: flex;
   justify-content: space-around;
   text-align: center;
+
+}
+.category h1:hover {
+  background-color: darkgray;
+}
+
+.productInfo button {
+  font-size: large;
 }

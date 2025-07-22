@@ -9,6 +9,7 @@ import MensPage from './pages/MensPage'
 import WomenPage from './pages/WomenPage'
 import JeweleryPage from './pages/JeweleryPage'
 import ElectronicsPage from './pages/ElectronicsPage'
+import CartPage from './pages/CartPage'
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/cart' element={<CartPage />} />
         <Route path='/signin' element={<SignInPage />} />
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/product/:id' element={<ProductInfo/>}></Route>

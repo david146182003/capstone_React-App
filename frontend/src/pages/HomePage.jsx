@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import SignUp from './SignUp'
 import { useState, useEffect } from 'react'
+import Footer from '../components/Footer'
 
 function HomePage(){
 
@@ -28,7 +28,7 @@ function HomePage(){
                 <Link to="electronics"><h1>Electronics</h1></Link>
             </div>
             <div className='homeContainer'>
-                <h1>Fashion store</h1>
+                
                 <ul>
                     {products.map((product)=>
                     <li className='product' key={product.id}>
@@ -38,6 +38,7 @@ function HomePage(){
                     </li>)}
                 </ul>
             </div>
+            <Footer/>
         </>
     )
 }

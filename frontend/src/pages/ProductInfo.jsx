@@ -5,18 +5,20 @@ import { useParams } from "react-router-dom"
 function ProductInfo(){
     const [info, setInfo] = useState({})
     const [count, setCount] = useState(1)
+    const [cart, setCart] = useState({})
+
     const {id} = useParams();
     const URL = "https://fakestoreapi.com/products"
     
     
     const handleDecrease = ()=>{
         if(count>0){
-            setCount(count -1);
+            setCount(prevCount => prevCount -1);
         }
         
     }
     const handleIncrease = ()=>{
-        setCount(count +1);
+        setCount(prevCount => prevCount +1);
     }
 
     const handleBag = () =>{

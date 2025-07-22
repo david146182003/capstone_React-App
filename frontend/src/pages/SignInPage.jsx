@@ -22,11 +22,22 @@ function SignInPage(){
         }
         getData()
     }, [])
+    
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        
-        
+        console.log(customers)
+        const customer = customers.filter((cus)=>{
+            if(cus.email == emailRef.current.value && cus.password == passwordRef.current.value){
+                return true
+            }else return false
+            
+        })
+        if(customer){}
+       console.log(customer)
+
+
+
     }
     return(
         <>
