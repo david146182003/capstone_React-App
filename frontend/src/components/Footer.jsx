@@ -1,9 +1,8 @@
 function Footer(){
     return(
-        <h1>
-
-            footer
-            </h1>
+      <div className="p-2 bg-secondary">
+        <p>&copy; Code with David</p>
+      </div>
         
     )
 }
