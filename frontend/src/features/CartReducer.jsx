@@ -3,6 +3,7 @@
 const CartReducer = (state, action) =>{
     switch (action.type) {
         case "Add" :
+            
             return [...state, action.payload]
 
         case "Delete":

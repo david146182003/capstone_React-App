@@ -9,7 +9,7 @@ import { VscAccount } from "react-icons/vsc";
 function NavBar(){
     const { auth, setAuth } = useContext(AuthContext)
     const {cart} = useContext(CartContext)
-    console.log(auth)
+    
     return(
         <nav className="nav">
             <Link to='/'>
@@ -17,7 +17,7 @@ function NavBar(){
             </Link>
             <ul>
                 <li>
-                    {auth.name ? <Link to="/"><VscAccount/> {auth.name} </Link>: <Link to="/signin">Log in</Link> }
+                    {auth.name ? <Link to="/user"><VscAccount/> {auth.name} </Link>: <Link to="/signin">Log in</Link> }
                 </li>
                 <li>
                     <Link to="/cart"><PiShoppingCartBold />{cart.length}</Link>
