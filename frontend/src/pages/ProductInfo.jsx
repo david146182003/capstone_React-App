@@ -35,7 +35,7 @@ function ProductInfo(){
             <div className="productInfo">
                 <h1>{info.title}</h1>
                 <h1>${info.price}</h1>
-                <h1>Quantity: <button>-</button> {info.quantity}<button>+</button></h1>
+                
                 <button onClick={()=>{dispatch({type: "Add", payload: info})}}>Add to Bag</button>
             </div>
         </div>

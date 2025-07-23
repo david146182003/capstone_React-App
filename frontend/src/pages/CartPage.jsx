@@ -22,11 +22,11 @@ function CartPage(){
                 </div>
                 <div className="col-4 ">
                     <div className="bg-secondary p-2 text-white">
-                        <h4>Total Items:{totalItem()}</h4>
-                        <h4>Total Price:{totalPrice()}</h4>
-                        <button className="btn btn-warning">
+                        {cart.length >0 ? <h4>Total Items:{totalItem()}<h4>Total Price:{totalPrice()}<button className="btn btn-warning">
                             Checkout
-                        </button>
+                        </button></h4></h4>  : "cart is empty"}
+                        
+                        
                     </div>
                 </div>
             </div>
