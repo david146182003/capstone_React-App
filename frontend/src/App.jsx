@@ -10,6 +10,7 @@ import WomenPage from './pages/WomenPage'
 import JeweleryPage from './pages/JeweleryPage'
 import ElectronicsPage from './pages/ElectronicsPage'
 import CartPage from './pages/CartPage'
+import UserPage from './pages/UserPage'
 
 
 
@@ -30,6 +31,7 @@ function App() {
         <Route path='/women' element={<WomenPage/>}></Route>
         <Route path='/jewelery' element={<JeweleryPage/>}></Route>
         <Route path='/electronics' element={<ElectronicsPage/>}></Route>
+        <Route path='/user' element={<UserPage/>}></Route>
       </Routes>
     </>
   )
