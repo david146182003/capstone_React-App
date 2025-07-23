@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useEffect } from "react"
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import Products from "../components/Products";
+
+
 
 function MensPage() {
-    const URL = "https://fakestoreapi.com/products"
+    
+    const URL = "http://localhost:8080/products"
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -15,21 +19,19 @@ function MensPage() {
         getData()
     }, [])
 
-
+    console.log(products)
     return (
         <>
             <h1><Link to='/'>Home</Link>  / <Link to='/'>All products</Link>  /Men's clothing</h1>
-            <ul>
-
-                {(products.filter((product) => product.category == "men's clothing")).map(product =>
-                    <li key={product.id} className="product">
-                        <Link to={`/product/${product.id}`}><img src={product.image} alt="" /></Link>
-                        <h1>{product.title}</h1>
-                        <h1>${product.price}</h1>
-                    </li>
-                )}
-
-            </ul>
+            
+            <div className="container mt-10">
+                <div className='row row-cols-1 row-cols-md-3 g-4'>
+                    {(products.filter((product) => product.category == "men's clothing")).map(product =>
+                    <Products key={product._id} product={product}/>
+                    )}
+                </div>
+            </div>
+            
         </>
     )
 }

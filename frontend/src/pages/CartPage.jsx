@@ -17,7 +17,7 @@ function CartPage(){
             <div className="row">
                 <div className="col-8">
                     {cart.map((product) =>(
-                        <CartProduct product={product}></CartProduct>
+                        <CartProduct key={product._id} product={product}></CartProduct>
                     ))}
                 </div>
                 <div className="col-4 ">

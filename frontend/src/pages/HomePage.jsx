@@ -28,7 +28,7 @@ function HomePage(){
             <div className="container mt-10">
                 <div className='row row-cols-1 row-cols-md-3 g-4'>
                     {products.map((product)=>(
-                        <Products product = {product}/>
+                        <Products key={product.title} product= {product}/>
                     ))}
                 </div>
             </div>

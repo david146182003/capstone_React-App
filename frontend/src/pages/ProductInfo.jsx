@@ -1,30 +1,22 @@
 import { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { CartContext } from "../features/ContextProvider";
+
+
 
 function ProductInfo(){
+
+    const {cart, dispatch} = useContext(CartContext)
     const [info, setInfo] = useState({})
-    const [count, setCount] = useState(1)
-    const [cart, setCart] = useState({})
+    
+    
 
     const {id} = useParams();
     const URL = "http://localhost:8080/products"
     
     
-    const handleDecrease = ()=>{
-        if(count>0){
-            setCount(prevCount => prevCount -1);
-        }
-        
-    }
-    const handleIncrease = ()=>{
-        setCount(prevCount => prevCount +1);
-    }
-
-    const handleBag = () =>{
-        
-    }
-
     useEffect(()=>{
         async function getProductById(){
             const response = await fetch(`${URL}/${id}`);
@@ -43,8 +35,8 @@ function ProductInfo(){
             <div className="productInfo">
                 <h1>{info.title}</h1>
                 <h1>${info.price}</h1>
-                <h1>Quantity: <button onClick={handleDecrease}>-</button> {count}<button onClick={handleIncrease}>+</button></h1>
-                <button onClick={handleBag}>Add to Bag</button>
+                <h1>Quantity: <button>-</button> {info.quantity}<button>+</button></h1>
+                <button onClick={()=>{dispatch({type: "Add", payload: info})}}>Add to Bag</button>
             </div>
         </div>
         <div>

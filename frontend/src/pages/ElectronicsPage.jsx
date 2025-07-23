@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Products from "../components/Products";
 
 function ElectronicsPage() {
 
-    const URL = "https://fakestoreapi.com/products"
+    const URL = "http://localhost:8080/products"
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -19,17 +20,13 @@ function ElectronicsPage() {
 
         <>
             <h1><Link to='/'>Home</Link>  / <Link to='/'>All products</Link>  /Electronics</h1>
-            <ul>
-
-                {(products.filter((product) => product.category == "electronics")).map(product =>
-                    <li key={product.id} className="product">
-                        <Link to={`/product/${product.id}`}><img src={product.image} alt="" /></Link>
-                        <h1>{product.title}</h1>
-                        <h1>${product.price}</h1>
-                    </li>
-                )}
-
-            </ul>
+            <div className="container mt-10">
+                <div className='row row-cols-1 row-cols-md-3 g-4'>
+                    {(products.filter((product) => product.category == "electronics")).map(product =>
+                        <Products key={product._id} product={product} />
+                    )}
+                </div>
+            </div>
         </>
     )
 }
