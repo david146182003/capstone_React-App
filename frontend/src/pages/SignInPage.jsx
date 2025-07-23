@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useContext} from "react"
+import AuthContext from "../features/AuthProvider";
 
 
 function SignInPage(){
-
+    const { auth, setAuth } = useContext(AuthContext)
     const BASE_URL = 'http://localhost:8080';
     const [customers, setCustomers]= useState([]);
     const emailRef = useRef();
@@ -33,8 +33,14 @@ function SignInPage(){
             }else return false
             
         })
-        if(customer){}
-       console.log(customer)
+        if(customer){
+            setAuth(customer[0])
+            alert(`Welcome back ${customer[0].name}`)
+            emailRef.current.value ='';
+            passwordRef.current.value =''
+        }
+       console.log(customer[0])
+       
 
 
 

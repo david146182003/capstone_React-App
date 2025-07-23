@@ -8,13 +8,12 @@ function HomePage(){
 
     const [products, setProducts] = useState([])
     const BASE_URL = 'http://localhost:8080'
-    console.log(products)
     
     useEffect(()=>{
         async function getData(){
             const response = await fetch(`${BASE_URL}/products`);
             const data = await response.json();
-            console.log(data);
+           
             setProducts(data)
         }
         getData()
