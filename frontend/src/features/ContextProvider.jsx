@@ -1,16 +1,16 @@
 import { createContext, useReducer } from "react";
+import CartReducer from "./CartReducer";
+
+export const CartContext = createContext()
 
 
-const CartContext = createContext()
-
-const ContextProvider = () =>{
-
-    const [cart, dispatch] = useReducer(, [])
+const ContextProvider = ({children}) =>{
+    const [cart, dispatch] = useReducer(CartReducer, [])
 
     return(
-        <div>
-        
-        </div>
+        <CartContext.Provider value={{cart, dispatch}}>
+            {children}
+        </CartContext.Provider>
     )
 }
 export default ContextProvider

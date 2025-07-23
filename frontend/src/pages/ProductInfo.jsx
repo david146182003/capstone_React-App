@@ -8,7 +8,7 @@ function ProductInfo(){
     const [cart, setCart] = useState({})
 
     const {id} = useParams();
-    const URL = "https://fakestoreapi.com/products"
+    const URL = "http://localhost:8080/products"
     
     
     const handleDecrease = ()=>{
