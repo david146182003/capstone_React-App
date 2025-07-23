@@ -83,7 +83,7 @@ body {
   width: 50%;
 }
 .productId img {
-  width: 50%;
+  height: 70vh;
   
 }
 
@@ -95,14 +95,22 @@ body {
 }
 
 .productInfo {
-  align-content:space-between;
+  text-align: center;
+  
 }
 
 .category {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  column-gap: 2em;
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
 
+.category h1{
+  font-size: x-large;
+  
 }
 .category h1:hover {
   background-color: darkgray;

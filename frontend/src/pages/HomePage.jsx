@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Footer from '../components/Footer'
 import Category from '../components/Category'
 import Products from '../components/Products'
 
@@ -22,8 +20,9 @@ function HomePage(){
 
 
     return (
-        <>
-            <Category/>
+        <>  <div className='category'>
+                <Category/>
+            </div>
             <div className="container mt-10">
                 <div className='row row-cols-1 row-cols-md-3 g-4'>
                     {products.map((product)=>(
@@ -32,7 +31,7 @@ function HomePage(){
                 </div>
             </div>
            
-            <Footer/>
+          
         </>
     )
 }

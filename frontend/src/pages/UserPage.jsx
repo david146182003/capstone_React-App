@@ -1,12 +1,15 @@
 import { useContext } from "react"
 import AuthContext from "../features/AuthProvider"
 import { Link } from "react-router-dom"
+import { CartContext } from "../features/ContextProvider"
 
 const UserPage = () =>{
+    const{cart, dispatch} = useContext(CartContext)
     const {auth, setAuth} = useContext(AuthContext)
 
     const handelClick = () =>{
         setAuth({})
+        dispatch({type:"Empty"})
         alert(`See you next time ${auth.name}`)
 
         

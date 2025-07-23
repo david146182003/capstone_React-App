@@ -20,6 +20,9 @@ const CartReducer = (state, action) =>{
             state[Dindex].quantity -=1;
             return [...state]
 
+        case "Empty":
+            return state=[]
+
         default:
             return state
     }

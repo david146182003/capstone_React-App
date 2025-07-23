@@ -11,6 +11,7 @@ import JeweleryPage from './pages/JeweleryPage'
 import ElectronicsPage from './pages/ElectronicsPage'
 import CartPage from './pages/CartPage'
 import UserPage from './pages/UserPage'
+import Footer from './components/Footer'
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/electronics' element={<ElectronicsPage/>}></Route>
         <Route path='/user' element={<UserPage/>}></Route>
       </Routes>
+      <Footer />
     </>
   )
 }
