@@ -26,7 +26,6 @@ function SignInPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let vaildUser;
         const customer = customers.filter((cus) => {
             if (cus.email == emailRef.current.value && cus.password == passwordRef.current.value) {
                 return true
@@ -35,20 +34,24 @@ function SignInPage() {
 
         if (customer.length > 0) {
             setAuth(customer[0])
-            alert(`Welcome back ${customer[0].name}`)
             emailRef.current.value = '';
-            passwordRef.current.value = ''
-        }
-        for (let cus of customers) {
-            if (cus.email === emailRef.current.value && cus.password !== passwordRef.current.value) {
-                 return alert('email or password is wrong')
-            }else if(cus.email !== emailRef.current.value ){
-                vaildUser = false
+            passwordRef.current.value = '';
+            return alert(`Welcome back ${customer[0].name}`)
+            
+        } else if (customer.length == 0) {
+            let invaildUser = false;
+            for (let cus of customers) {
+                if (cus.email === emailRef.current.value && cus.password !== passwordRef.current.value) {
+                    return alert('email or password is wrong')
+                } else if (cus.email !== emailRef.current.value) {
+                    invaildUser = true
+                }
+            }
+            if(invaildUser){
+                return alert("No user be found")
             }
         }
-        if(!vaildUser){
-            alert('No user be found')
-        }
+
 
 
     }
