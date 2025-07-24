@@ -22,6 +22,9 @@ const UserPage = () =>{
     }
 
     const handlePassword = async() =>{
+        if(inputRef.current.value === ''){
+            return 
+        }
         const response = await fetch(`${URL}/${auth._id}`,{
             method: "PATCH",
             body:JSON.stringify({password: inputRef.current.value}),
@@ -31,6 +34,10 @@ const UserPage = () =>{
         })
         const updatedPassword = await response.json()
         console.log(updatedPassword)
+        const res = await fetch(`${URL}/${auth._id}`)
+        const updatedUser = await res.json()
+        setAuth(updatedUser);  //update the auth state for UI
+        
         alert('Your password is updated successful!')
         setEdit(false)
 
@@ -42,7 +49,13 @@ const UserPage = () =>{
                 <h1><span className="span">Email:</span> {auth.email}</h1>
                 <h1><span className="span">Phone:</span> {auth.phone}</h1>
 
-               {edit ? <h1><span className="span">Password:</span><input ref={inputRef} /><button onClick={handlePassword}>update</button></h1> : <h1><span className="span">Password:</span> {auth.password}<span><button onClick={handleEdit}>Edit</button></span></h1>} 
+               {edit ? 
+               <h1><span className="span">Password:</span>
+               <input type="password" ref={inputRef} required/>
+               <button onClick={handlePassword}>update</button></h1> 
+               : 
+               <h1><span className="span">Password:</span> {auth.password}<span>
+                <button onClick={handleEdit}>Edit</button></span></h1>} 
 
             </div>
             <Link to='/'><button onClick={handelClick}>Log out</button></Link>
