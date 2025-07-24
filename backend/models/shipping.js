@@ -32,6 +32,10 @@ const shippingSchema = new mongoose.Schema({
     },
     state: {
         type: String,
+        required: false
+    },
+    payment: {
+        type: String,
         required: true
     }
 
