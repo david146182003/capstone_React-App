@@ -4,6 +4,7 @@ import connectDb from './db.js';
 import 'dotenv/config'
 import Customer from './models/customers.js'
 import Product from './models/products.js';
+import Shipping from './models/shipping.js';
 
 const app = express();
 const port = process.env.PORT;
@@ -107,6 +108,14 @@ app.get('/products/:id', async (req, res)=>{
     try{
         const product = await Product.findOne({_id: req.params.id});
         res.status(200).json(product)
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
+app.get('/shipping', async(req, res)=>{
+    try{
+        const shipping = await Shipping.find({})
+        res.status(200).json(shipping)
     }catch(e){
         res.status(400).json(e)
     }
