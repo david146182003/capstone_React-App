@@ -3,9 +3,8 @@
 const CartReducer = (state, action) =>{
     switch (action.type) {
         case "Add" :
-            
             return [...state, action.payload]
-
+            
         case "Delete":
             return state.filter(p => p._id !==action.payload)
 

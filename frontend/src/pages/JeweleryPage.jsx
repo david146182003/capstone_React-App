@@ -19,7 +19,9 @@ function JeweleryPage() {
 
     return (
         <>
+        <div className="url">
             <h1><Link to='/'>Home</Link>  / <Link to='/'>All products</Link>  /Jewelery</h1>
+        </div>
             <div className="container mt-10">
                 <div className='row row-cols-1 row-cols-md-3 g-4'>
                     {(products.filter((product) => product.category == "jewelery")).map(product =>
@@ -27,6 +29,7 @@ function JeweleryPage() {
                     )}
                 </div>
             </div>
+            
         </>
     )
 }

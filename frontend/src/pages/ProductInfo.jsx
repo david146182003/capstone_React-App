@@ -25,6 +25,15 @@ function ProductInfo(){
         }
         getProductById()
     }, [])
+
+    const handelClick = () =>{
+        for(let i=0; i<cart.length; i++){
+            if(cart[i]._id == info._id){
+                return alert('item already exist in cart')
+            }
+        }
+        dispatch({type: 'Add', payload:info})
+    }
     
     return(
         <>
@@ -36,7 +45,7 @@ function ProductInfo(){
                 <h1>{info.title}</h1>
                 <h1>${info.price}</h1>
                 
-                <button onClick={()=>{dispatch({type: "Add", payload: info})}}>Add to Bag</button>
+                <button onClick={handelClick}>Add to Bag</button>
             </div>
         </div>
         <div>

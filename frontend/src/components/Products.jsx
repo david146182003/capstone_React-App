@@ -1,10 +1,17 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../features/ContextProvider"
-
 const Products = ({ product }) => {
-
-    const { dispatch } = useContext(CartContext)
+    
+    const { cart, dispatch } = useContext(CartContext)
+    const handleClick = () =>{
+        for(let i=0; i<cart.length; i++){
+            if(cart[i]._id == product._id){
+                return alert('item already exist in cart')
+            }
+        }
+        dispatch({type: 'Add', payload: product})
+    }
     return (
         <div className="col">
             <div className="card text-center h-100">
@@ -14,7 +21,7 @@ const Products = ({ product }) => {
                     <h5 className="card-title">${product.price}</h5>
                     <button
                         className="btn btn-primary"
-                        onClick={() => dispatch({ type: 'Add', payload: product })}
+                        onClick={handleClick}
                     >
                         Add to Cart
                         

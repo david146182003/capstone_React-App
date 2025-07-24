@@ -132,3 +132,14 @@ body {
 .span{
   color: black;
 }
+.url {
+  display: flex;
+  justify-content:flex-start;
+  column-gap: 2em;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.url h1 {
+  font-size: x-large;
+}

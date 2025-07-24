@@ -21,9 +21,10 @@ function MensPage() {
 
     console.log(products)
     return (
-        <>
-            <h1><Link to='/'>Home</Link>  / <Link to='/'>All products</Link>  /Men's clothing</h1>
-            
+        <>  
+            <div className='url'>
+                <h1><Link to='/'>Home</Link>  / <Link to='/'>All products</Link>  /Men's clothing</h1>
+            </div>
             <div className="container mt-10">
                 <div className='row row-cols-1 row-cols-md-3 g-4'>
                     {(products.filter((product) => product.category == "men's clothing")).map(product =>
