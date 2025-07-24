@@ -32,11 +32,13 @@ const Checkout = () => {
         const shippingInfo = {
             firstname: firstNameRef.current.value,
             lastname: lastNameRef.current.value,
-            phone: phoneRef.current.value,
+            phone: Number(phoneRef.current.value),
             address: addressRef.current.value,
             city: cityRef.current.value,
-            zip: zipRef.current.value,
+            zip: Number(zipRef.current.value),
+            email: emailRef.current.value
         }
+        console.log(shippingInfo)
         const response = await fetch(URL,{
             method: 'POST',
             body: JSON.stringify(shippingInfo),
