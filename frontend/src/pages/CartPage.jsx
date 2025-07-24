@@ -47,8 +47,8 @@ function CartPage(){
                 <div className="col-4 ">
                     <div className="bg-secondary p-2 text-white">
                         {cart.length >0 ? 
-                        <h4>Total Items: {totalItem()} <br/>Total Price: {totalPrice()}
-                        <br/>Tax: {tax()} <br /> Shipping: {shippingFee()} <br />Sum: {sum()} <br />
+                        <h4>Total Items: {totalItem()} <br/>Total Price: ${totalPrice()}
+                        <br/>Tax: ${tax()} <br /> Shipping: ${shippingFee()} <br />Sum: ${sum()} <br />
                         <Link to='/checkout'><button className="btn btn-warning" >Checkout</button></Link></h4>  
                         : 
                         "cart is empty"}

@@ -11,6 +11,7 @@ const Checkout = () => {
     const addressRef = useRef()
     const cityRef = useRef()
     const zipRef = useRef()
+    const paymentRef = useRef()
     const URL = 'http://localhost:8080/shipping'
     const [shipping, setShipping] = useState([])
 
@@ -37,7 +38,8 @@ const Checkout = () => {
             address: addressRef.current.value,
             city: cityRef.current.value,
             zip: Number(zipRef.current.value),
-            email: emailRef.current.value
+            email: emailRef.current.value,
+            payment: paymentRef.current.value
         }
         console.log(shippingInfo)
         const response = await fetch(URL,{
@@ -109,7 +111,8 @@ const Checkout = () => {
                 <input type="text" className="form-control" ref={zipRef}/>
             </div>
             <div className="col-12">
-             
+                <label className="form-label">Payment: Card</label>
+                <input type="text" className="form-control" ref={paymentRef}/>
             </div>
             <div className="col-12">
                 <button type="submit" className="btn btn-primary">confirm</button>
