@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect} from "react"
-
-
+import { CartContext } from "../features/ContextProvider"
+import { useContext } from "react"
 
 const Checkout = () => {
+    const{cart, dispatch} = useContext(CartContext)
     const emailRef = useRef()
     const lastNameRef = useRef()
     const firstNameRef = useRef()
@@ -49,6 +50,16 @@ const Checkout = () => {
         const newShipping = await response.json()
         setShipping([...shipping, newShipping])
 
+        firstNameRef.current.value = ''
+        lastNameRef.current.value = ''
+        phoneRef.current.value =''
+        addressRef.current.value =''
+        cityRef.current.value = ''
+        zipRef.current.value = ''
+        emailRef.current.value = ''
+        alert('Order received! Thank you for shopping with us')
+        dispatch({type: "Empty"}) //empty shopping cart
+
     }
 
     
@@ -57,11 +68,11 @@ const Checkout = () => {
         <form className="row g-3" onSubmit={handleShipping}>
             <div className="col-md-6">
                 <label  className="form-label">LastName</label>
-                <input type="text" className="form-control" ref={lastNameRef} />
+                <input type="text" className="form-control" ref={lastNameRef} required />
             </div>
             <div className="col-md-6">
                 <label className="form-label">FirstName</label>
-                <input type="text" className="form-control" ref={firstNameRef}/>
+                <input type="text" className="form-control" ref={firstNameRef} required/>
             </div>
             <div className="col-md-6">
                 <label  className="form-label">Phone </label>
@@ -69,17 +80,17 @@ const Checkout = () => {
             </div>
             <div className="col-md-6">
                 <label  className="form-label">Email</label>
-                <input type="email" className="form-control" ref={emailRef}/>
+                <input type="email" className="form-control" ref={emailRef} required/>
             </div>
             
             <div className="col-12">
                 <label className="form-label">Address</label>
-                <input type="text" className="form-control" ref={addressRef} placeholder="1234 Main St"/>
+                <input type="text" className="form-control" ref={addressRef} required placeholder="1234 Main St"/>
             </div>
             
             <div className="col-md-6">
                 <label className="form-label">City</label>
-                <input type="text" className="form-control" ref={cityRef}/>
+                <input type="text" className="form-control" ref={cityRef} required/>
             </div>
             <div className="col-md-4">
                 <label className="form-label">State</label>
