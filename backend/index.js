@@ -121,6 +121,15 @@ app.get('/shipping', async(req, res)=>{
     }
 })
 
+app.post('/shipping', async(req, res)=>{
+    try{
+        const shipping = await Shipping.create(req.body)
+        res.status(200).json(shipping)
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
+
 app.listen(port, ()=>{
     console.log(`Server is running port: ${port}`)
     connectDb()
