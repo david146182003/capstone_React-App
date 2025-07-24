@@ -12,6 +12,7 @@ import ElectronicsPage from './pages/ElectronicsPage'
 import CartPage from './pages/CartPage'
 import UserPage from './pages/UserPage'
 import Footer from './components/Footer'
+import CheckOutPage from './pages/CheckOutPage'
 
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path='/jewelery' element={<JeweleryPage/>}></Route>
         <Route path='/electronics' element={<ElectronicsPage/>}></Route>
         <Route path='/user' element={<UserPage/>}></Route>
+        <Route path='/checkout' element={<CheckOutPage/>}></Route>
       </Routes>
       <Footer />
     </>

@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "../features/ContextProvider"
 import CartProduct from "../components/CartProduct"
+import { Link } from "react-router-dom"
 
 function CartPage(){
     
@@ -48,7 +49,7 @@ function CartPage(){
                         {cart.length >0 ? 
                         <h4>Total Items: {totalItem()} <br/>Total Price: {totalPrice()}
                         <br/>Tax: {tax()} <br /> Shipping: {shippingFee()} <br />Sum: {sum()} <br />
-                        <button className="btn btn-warning">Checkout</button></h4>  
+                        <Link to='/checkout'><button className="btn btn-warning" >Checkout</button></Link></h4>  
                         : 
                         "cart is empty"}
                         
