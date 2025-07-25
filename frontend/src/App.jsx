@@ -13,6 +13,7 @@ import CartPage from './pages/CartPage'
 import UserPage from './pages/UserPage'
 import Footer from './components/Footer'
 import CheckOutPage from './pages/CheckOutPage'
+import CheckOut from './components/CheckOut'
 
 
 
@@ -35,6 +36,7 @@ function App() {
         <Route path='/electronics' element={<ElectronicsPage/>}></Route>
         <Route path='/user' element={<UserPage/>}></Route>
         <Route path='/checkout' element={<CheckOutPage/>}></Route>
+        <Route path='/checkout-guest' element={<CheckOut/>}></Route>
       </Routes>
       <Footer />
     </>

@@ -41,6 +41,12 @@ const SignUp = ()=>{
             address: addressRef.current.value
 
         }
+        //check if email has been used
+        for(let cus of customers){
+            if(cus.email === customer.email){
+                return alert('email alreay been used')
+            }
+        }
         const response = await fetch(BASE_URL + '/customers', {
             method: 'POST',
             body: JSON.stringify(customer),
