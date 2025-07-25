@@ -5,6 +5,7 @@ import 'dotenv/config'
 import Customer from './models/customers.js'
 import Product from './models/products.js';
 import Shipping from './models/shipping.js';
+import Order from './models/orderlist.js';
 
 const app = express();
 const port = process.env.PORT;
@@ -125,6 +126,23 @@ app.post('/shipping', async(req, res)=>{
     try{
         const shipping = await Shipping.create(req.body)
         res.status(200).json(shipping)
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
+app.get('/order', async(req, res)=>{
+    try{
+        const orders = await Order.find()
+        res.status(200).json(orders)
+    }catch(e){
+        res.status(400).json(e)
+    }
+})
+
+app.post('/order', async(req, res)=>{
+    try{
+        const order = await Order.create(req.body)
+        res.status(200).json(order)
     }catch(e){
         res.status(400).json(e)
     }
